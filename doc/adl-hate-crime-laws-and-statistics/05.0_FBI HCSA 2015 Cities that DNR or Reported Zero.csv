@@ -1,0 +1,88 @@
+Unique_ID,Group,City,FBI_Field_Office,FBI_Resident_Agency ,Population_2015,2015_Incidents,2014_Incidents,2013_Incidents,2012_Incidents,Latitude,Longitude
+G1D-2,Group 1-DNR,"Jacksonville, FL",1,0,867258,DNR,0,5,4,21.313743,-157.851044
+G1D-1,Group 1-DNR,"Honolulu, HI",1,0,999307,DNR,DNR,DNR,DNR,30.326313,-81.651178
+G1D-3,Group 1-DNR,"Portland, OR",1,0,628192,DNR,DNR,6,7,45.509906,-122.699634
+G1D-4,Group 1-DNR,"Miami, FL",1,0,437969,DNR,0,0,0,25.829833,-80.283891
+G1D-5,Group 1-DNR,"Tampa, FL",1,0,364383,DNR,0,0,0,27.988456,-82.464179
+G1D-6,Group 1-DNR,"Orlando, FL*",0,1,268438,DNR,5,2,3,28.545742,-81.36734
+G1D-7,Group 1-DNR,"St. Petersburg, FL",0,0,255821,DNR,0,1,0,27.775132,-82.644041
+G2D-1,Group 2-DNR ,"Hialeah, FL",0,0,238132,DNR,0,0,0,25.844725,-80.302647
+G2D-2,Group 2-DNR ,"Columbus, GA*",0,1,203778,DNR,DNR,0,2,32.472576,-84.991253
+G2D-3,Group 2-DNR ,"Huntsville, AL*",0,1,190106,DNR,DNR,0,2,34.778199,-86.582662
+G2D-4,Group 2-DNR ,"Fort Lauderdale, FL",0,0,178598,DNR,0,0,1,26.123496,-80.132818
+G2D-5,Group 2-DNR ,"Cape Coral, FL",0,0,173844,DNR,1,0,1,26.568079,-81.948609
+G2D-6,Group 2-DNR ,"Jackson, MS",1,0,170508,DNR,0,0,DNR,32.315211,-90.18735
+G2D-7,Group 2-DNR ,"Hollywood, FL",0,0,149822,DNR,0,0,0,26.00738,-80.141914
+G2D-8,Group 2-DNR ,"Miramar, FL",0,0,138330,DNR,1,1,3,25.987937,-80.224197
+G2D-9,Group 2-DNR ,"Gresham, OR",0,0,110901,DNR,DNR,DNR,DNR,45.496213,-122.478009
+G2D-10,Group 2-DNR ,"Pompano Beach, FL",0,0,107656,DNR,0,DNR,DNR,26.236983,-80.119801
+G2D-11,Group 2-DNR ,"Lakeland, FL*",0,1,103498,DNR,0,0,1,28.035944,-81.93887
+G2D-12,Group 2-DNR ,"Las Cruces, NM*",0,1,102227,DNR,DNR,DNR,DNR,35.19085,-106.61875
+G2D-13,Group 2-DNR ,"Hillsboro, OR",0,0,101206,DNR,DNR,DNR,DNR,45.515267,-122.942254
+G2D-14,Group 2-DNR ,"Davie, FL",0,0,100612,DNR,0,0,0,26.044158,-80.24308
+G1Z-1,Group 1- Reported Zero ,"Tulsa, OK*",0,1,401520,0,0,0,DNR,36.14654,-95.95023
+G1Z-2,Group 1- Reported Zero ,"Arlington, TX",0,0,387565,0,0,0,DNR,32.637724,-97.174496
+G1Z-3,Group 1- Reported Zero ,"Anaheim, CA",0,0,349471,0,0,0,1,33.83658,-117.950759
+G1Z-4,Group 1- Reported Zero ,"Newark, NJ",1,0,280888,0,5,3,DNR,40.73427,-74.176091
+G1Z-5,Group 1- Reported Zero ,"Laredo, TX*",0,1,256280,0,0,0,0,27.512858,-99.502203
+G1Z-6,Group 1- Reported Zero ,"Mobile, AL",1,0,250346,0,0,0,DNR,30.688117,-88.047649
+G2Z-1,Group 2- Reported Zero ,"Lubbock, TX*",0,1,247271,0,1,0,0,33.584992,-101.844857
+G2Z-2,Group 2- Reported Zero ,"Winston-Salem, NC",0,0,241631,0,0,0,1,36.0923,-80.24373
+G2Z-3,Group 2- Reported Zero ,"Savannah-Chatham Metro, GA*",0,1,240178,0,0,0,0,32.066032,-81.084647
+G2Z-4,Group 2- Reported Zero ,"Garland, TX",0,0,237593,0,1,2,DNR,32.913584,-96.63931
+G2Z-5,Group 2- Reported Zero ,"Irving, TX",0,0,236465,0,0,0,DNR,32.869563,-96.988521
+G2Z-6,Group 2- Reported Zero ,"Baton Rouge, LA*",0,1,228727,0,DNR,DNR,DNR,30.449388,-91.187343
+G2Z-7,Group 2- Reported Zero ,"Fontana, CA",0,0,206982,0,3,1,0,34.155816,-117.48498
+G2Z-8,Group 2- Reported Zero ,"Montgomery, AL*",0,1,199139,0,DNR,DNR,DNR,32.369234,-86.299497
+G2Z-9,Group 2- Reported Zero ,"Amarillo, TX*",0,1,198770,0,0,0,1,35.198795,-101.860324
+G2Z-10,Group 2- Reported Zero ,"Little Rock, AR",1,0,198217,0,0,0,0,34.746636,-92.271615
+G2Z-11,Group 2- Reported Zero ,"Brownsville, TX*",0,1,184941,0,0,0,0,25.935354,-97.507982
+G2Z-12,Group 2- Reported Zero ,"Tempe, AZ",0,0,175556,0,2,3,5,33.415439,-111.919058
+G2Z-13,Group 2- Reported Zero ,"Sioux Falls, SD*",0,1,172313,0,2,4,15,43.555308,-96.710753
+G2Z-14,Group 2- Reported Zero ,"Peoria, AZ",0,0,170222,0,0,0,DNR,33.612102,-112.205642
+G2Z-15,Group 2- Reported Zero ,"Corona, CA",0,0,163633,0,0,1,3,33.893954,-117.514295
+G2Z-16,Group 2- Reported Zero ,"Cary, NC",0,0,160291,0,0,0,0,35.776913,-78.762189
+G2Z-17,Group 2- Reported Zero ,"Pasadena, TX",0,0,154986,0,0,1,0,29.671767,-95.196831
+G2Z-18,Group 2- Reported Zero ,"Pomona, CA",0,0,154410,0,2,0,4,34.042611,-117.740387
+G2Z-19,Group 2- Reported Zero ,"Sunnyvale, CA",0,0,152443,0,1,1,3,37.391298,-122.009194
+G2Z-20,Group 2- Reported Zero ,"Lakewood, CO",0,0,151311,0,1,4,2,39.730836,-105.064066
+G2Z-21,Group 2- Reported Zero ,"Kansas City, KS",0,0,150370,0,1,0,DNR,39.1288,-94.61978
+G2Z-22,Group 2- Reported Zero ,"Joliet, IL",0,0,147991,0,1,0,1,41.535267,-88.268346
+G2Z-23,Group 2- Reported Zero ,"Naperville, IL",0,0,147101,0,DNR,0,0,41.779552,-88.111357
+G2Z-24,Group 2- Reported Zero ,"Paterson, NJ",0,0,146588,0,0,0,0,40.919193,-74.173447
+G2Z-25,Group 2- Reported Zero ,"Mesquite, TX",0,0,145569,0,0,0,0,32.773848,-96.621018
+G2Z-26,Group 2- Reported Zero ,"Syracuse, NY*",0,1,144027,0,0,0,0,43.035041,-76.144144
+G2Z-27,Group 2- Reported Zero ,"McAllen, TX*",0,1,140593,0,0,1,0,26.206073,-98.23443
+G2Z-28,Group 2- Reported Zero ,"Killeen, TX",0,0,140497,0,1,0,0,31.12302,-97.725196
+G2Z-29,Group 2- Reported Zero ,"Olathe, KS",0,0,134830,0,0,0,DNR,38.882561,-94.812328
+G2Z-30,Group 2- Reported Zero ,"Thornton, CO",0,0,133188,0,0,3,0,39.857933,-104.955836
+G2Z-31,Group 2- Reported Zero ,"Midland, TX*",0,1,132625,0,0,0,0,32.016569,-102.079391
+G2Z-32,Group 2- Reported Zero ,"Sterling Heights, MI",0,0,132255,0,0,0,4,42.566621,-83.088834
+G2Z-33,Group 2- Reported Zero ,"Waco, TX*",0,1,131413,0,0,0,0,31.538876,-97.150676
+G2Z-34,Group 2- Reported Zero ,"Elizabeth, NJ",0,0,129364,0,0,0,0,40.666829,-74.214213
+G2Z-35,Group 2- Reported Zero ,"Surprise, AZ",0,0,128525,0,0,0,0,33.632327,-112.395213
+G2Z-36,Group 2- Reported Zero ,"Lafayette, LA*",0,1,127273,0,0,0,0,30.219423,-91.999673
+G2Z-37,Group 2- Reported Zero ,"Murfreesboro, TN",0,0,123994,0,0,1,2,35.757509,-86.336644
+G2Z-38,Group 2- Reported Zero ,"Santa Clara, CA",0,0,123562,0,0,2,0,37.343329,-121.963941
+G2Z-39,Group 2- Reported Zero ,"Abilene, TX*",0,1,121764,0,0,0,0,32.46968,-99.73724
+G2Z-40,Group 2- Reported Zero ,"Vallejo, CA",0,0,121257,0,0,2,2,38.126421,-122.239447
+G2Z-41,Group 2- Reported Zero ,"Evansville, IN*",0,1,120414,0,0,0,DNR,37.973174,-87.569014
+G2Z-42,Group 2- Reported Zero ,"Allentown, PA*",0,1,119335,0,1,DNR,DNR,40.608157,-75.460352
+G2Z-43,Group 2- Reported Zero ,"Peoria, AL",0,0,116066,0,DNR,DNR,DNR,#N/A,#N/A
+G2Z-44,Group 2- Reported Zero ,"Round Rock, TX",0,0,115955,0,0,0,DNR,30.667938,-97.68901
+G2Z-45,Group 2- Reported Zero ,"Provo, UT",0,0,115294,0,0,1,2,40.23779,-111.671819
+G2Z-46,Group 2- Reported Zero ,"Downey, CA",0,0,114754,0,0,0,1,33.956105,-118.117342
+G2Z-47,Group 2- Reported Zero ,"Carlsbad, CA",0,0,113972,0,0,3,0,33.169777,-117.342521
+G2Z-48,Group 2- Reported Zero ,"Westminster, CO",0,0,113547,0,0,1,1,39.895897,-105.063313
+G2Z-49,Group 2- Reported Zero ,"Costa Mesa, CA",0,0,113477,0,0,1,0,33.671123,-117.900858
+G2Z-50,Group 2- Reported Zero ,"Inglewood, CA",0,0,112450,0,1,0,1,33.963978,-118.35635
+G2Z-51,Group 2- Reported Zero ,"Richardson, TX",0,0,111008,0,2,0,DNR,32.970843,-96.721986
+G2Z-52,Group 2- Reported Zero ,"Murrieta, CA",0,0,109495,0,1,5,2,33.556867,-117.212911
+G2Z-53,Group 2- Reported Zero ,"Waterbury, CT",0,0,109044,0,4,6,6,41.550134,-73.037664
+G2Z-54,Group 2- Reported Zero ,"Broken Arrow, OK",0,0,106145,0,0,1,DNR,36.016478,-95.790226
+G2Z-55,Group 2- Reported Zero ,"College Station, TX",0,0,105855,0,1,DNR,DNR,30.591777,-96.316423
+G2Z-56,Group 2- Reported Zero ,"Wichita Falls, TX*",0,1,105186,0,2,0,DNR,33.908363,-98.528454
+G2Z-57,Group 2- Reported Zero ,"Santa Maria, CA*",0,1,104355,0,0,1,1,34.86554,-120.295
+G2Z-58,Group 2- Reported Zero ,"Sandy Springs, GA",0,0,103898,0,0,0,0,33.978968,-84.354843
+G2Z-59,Group 2- Reported Zero ,"Davenport, IA",0,0,103082,0,0,0,0,41.522257,-90.578489
+G2Z-60,Group 2- Reported Zero ,"Kenosha, WI",0,0,100038,0,0,0,0,42.632768,-87.832521
