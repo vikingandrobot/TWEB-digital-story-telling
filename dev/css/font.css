@@ -11,8 +11,20 @@ h1 {
   font-weight: lighter;
 }
 
+h2 {
+  font-size: 2em;
+  font-weight: lighter;
+  letter-spacing: 0.05em;
+  color: #57699c;
+}
+
 h3 {
   font-size: 1.2em;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+p {
+  line-height: 1.8em;
+  text-align: justify;
 }
