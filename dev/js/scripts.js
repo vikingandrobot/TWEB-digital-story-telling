@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     // Animate the scroll
     $('html').animate({
-      scrollTop: $(targetID).offset().top
+      scrollTop: $(targetID).offset().top - $('header').outerHeight()
     }, 500);
   })
 });
