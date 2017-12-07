@@ -28,8 +28,8 @@ let svg = d3.select("body")
 		.attr("height", height);
 
 var valueline = d3.line()
-    .x(function(d) { return xScale(d.Year); })
-    .y(function(d) { return yScale(d.RacialBias_Total); });
+	 .x(function(d) { return xScale(d.Year); })
+	 .y(function(d) { return yScale(d.RacialBias_Total); });
 
 d3.csv("data/pute.csv", (err, data) => {
 	if(err) throw err;
