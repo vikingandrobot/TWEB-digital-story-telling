@@ -1,0 +1,124 @@
+/* Box-sizing nice and pretty */
+* {
+  box-sizing: border-box;
+}
+
+/* CSS3 transitions */
+header nav .github-link {
+  -webkit-transition: all 0.05s; /* Safari */
+  transition: all 0.05s;
+}
+
+html, body {
+  margin: 0;
+}
+
+/* Scroll links */
+.scroll-link {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+
+  margin: 2.5%;
+
+  background-image: url('../img/down_arrow.svg');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+}
+
+/* Page header */
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+
+  z-index: 999;
+}
+
+/* Page Navigation */
+header nav {
+  float: right;
+  padding: 1%;
+}
+
+/* Header link to GitHub */
+header nav .github-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  font-size: 0;
+  background-image: url('../img/github_logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+}
+header nav .github-link:hover {
+  background-size: 100%;
+}
+
+/* Page cover */
+#cover {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('../img/cover.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#cover article {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 80%;
+
+  padding: 5% 5% 2% 5%;
+  margin-left: -40%;
+
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: solid 10px #57699c;
+}
+#cover article h1, #cover article h3 {
+  margin: 0;
+}
+#cover article hr {
+  display: inline-block;
+  width: 40%;
+  height: 2px;
+  margin: 20px 0 10px 0;
+
+  background-color: black;
+}
+#cover article .scroll-link {
+  margin-top: 10%;
+}
+
+/* Container for the content */
+.container {
+  width: 90%;
+  max-width: 1400px;
+  padding: 5%;
+  margin: 10% auto;
+  background-color: white;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.05);
+}
+
+#content article {
+  position: relative;
+  padding: 2.5% 7.5%;
+}
+#content article::before, #content article::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 6px;
+
+  background-color: #57699c;
+}
