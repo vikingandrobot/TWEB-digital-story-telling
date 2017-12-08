@@ -26,10 +26,10 @@ let filter = [
 	{title: "Racial bias", color: "Crimson", column: "RacialBias_Total"}, 
 	{title: "Ethnicity / National origin", color: "Tomato", column: "Ethnicity/NationalOrigin_Total"}, 
 	{title: "Religious bias", color: "LightSlateGray", column: "ReligiousBias_Total"}, 
-	{title: "Disability_Total", color: "MediumOrchid", column: "Disability_Total"},
-	{title: "Sexual orientation", color: "LimeGreen", column: "SexualOrientation_Total"},
-	{title: "Gender", color: "SteelBlue", column: "Gender_Total"},
-	{title: "Gender identity", color: "DarkKhaki", column: "GenderIdentity_Total"}
+	// {title: "Disability", color: "MediumOrchid", column: "Disability_Total"},
+	// {title: "Sexual orientation", color: "LimeGreen", column: "SexualOrientation_Total"},
+	// {title: "Gender", color: "SteelBlue", column: "Gender_Total"},
+	// {title: "Gender identity", color: "DarkKhaki", column: "GenderIdentity_Total"}
 ];
 
 // Create the svg
@@ -46,7 +46,7 @@ d3.csv("data/pute.csv", (err, data) => {
 		let line = d3.line()
 			.x(function(d) { return xScale(d.Year); })
 			.y(function(d) { return yScale(d[element.column]); });
-		
+
 		svg.append("path")
 			.data([data])
 			.attr("class", "line")
@@ -57,18 +57,24 @@ d3.csv("data/pute.csv", (err, data) => {
 	});
 
 	// Add legend
-	let legend = svg
+	let legends = svg
+		.append("g")
+		.attr("class", "legends")
+		.attr("transform", "translate(" + 680 + "," + 50 + ")");
+	
+	let legend = legends
 		.selectAll("g.legend")
 		.data(filter)
 		.enter().append("g")
 		.attr("class", "legend");
-		
+
+
 	let w = 20;
 	let h = 20;
 
 	legend.append("rect")
 		.attr("x", w)
-		.attr("y", (d, i) => { return height - (i * h) - 2 * h;})
+		.attr("y", (d, i) => { return (i * h) - 2 * h;})
 		.attr("width", w)
 		.attr("height", h)
 		.style("fill", (d, i) => { return d.color; })
@@ -76,7 +82,7 @@ d3.csv("data/pute.csv", (err, data) => {
 
 	legend.append("text")
 		.attr("x", 50)
-		.attr("y", (d, i) => { return height - (i * h) - h - 4;})
+		.attr("y", (d, i) => { return (i * h) - h - 4;})
 		.text((d, i) => { return d.title; });
 
 
