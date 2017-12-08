@@ -44,7 +44,7 @@ header nav li {
   padding: 0 10px;
 }
 header nav li a {
-  color: white;
+  color: white !important;
   font-size: 0.8em;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
@@ -186,4 +186,21 @@ header nav .github-link:hover {
 .quote .author {
   font-family: 'Montserrat', sans-serif;
   color: #777777;
+}
+
+
+footer {
+  padding: 2%;
+  margin: 0;
+  background-color: #efefef;
+}
+footer p {
+  float: none;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  color: #57699c;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 0.8em;
 }

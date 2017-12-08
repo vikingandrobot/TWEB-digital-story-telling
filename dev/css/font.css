@@ -28,3 +28,13 @@ p {
   line-height: 1.8em;
   text-align: justify;
 }
+
+/* Links */
+a {
+  color: #8e4a55 !important;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7;
+}
