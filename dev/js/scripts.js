@@ -8,7 +8,7 @@ $(document).ready(function() {
     const targetID = $(this).attr('href');
 
     // Animate the scroll
-    $('html').animate({
+    $('html, body').animate({
       scrollTop: $(targetID).offset().top - $('header').outerHeight()
     }, 500);
   })

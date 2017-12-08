@@ -104,22 +104,29 @@ header nav .github-link:hover {
   background-color: black;
 }
 #cover article .scroll-link {
-  margin-top: 10%;
-}
-
-/* Scroll links */
-#cover .scroll-link {
+  margin-top: 5%;
   display: inline-block;
   width: 30px;
   height: 30px;
-
-  margin: 2.5%;
 
   background-image: url('../img/down_arrow.svg');
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: center;
+  animation-name: linkanimation;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
+#cover article .scroll-link:hover {
+  animation-play-state: paused;
+}
+/* Scroll button animation */
+@keyframes linkanimation {
+    from {transform: translateY(-10px);}
+    to {transform: translateY(10px);}
+}
+
 
 /* Container for the content */
 .container {
