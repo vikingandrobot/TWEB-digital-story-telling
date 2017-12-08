@@ -12,4 +12,44 @@ $(document).ready(function() {
       scrollTop: $(targetID).offset().top - $('header').outerHeight()
     }, 500);
   })
+
+  const hateCrimesGraph = new LineGraph({
+    containerID: '#hate-crime-line-graphe',
+    dataFile: 'data/hate_crimes.csv',
+    yAxisColumnName: 'Year',
+    width: $('#hate-crime-line-graphe').outerWidth(),
+    height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
+    xScaleDomain: [2000, 2015], // Domain of the x scale domain
+    yScaleDomain: [0, 4500], // Domain of the y scale domain
+    xAxisLabel: 'Year',
+    yAxisLabel: 'Number of registered offenses',
+    filters: [
+    	{title: "Racial bias", color: "Crimson", column: "RacialBias_Total"},
+    	{title: "Ethnicity / National origin", color: "Tomato", column: "Ethnicity/NationalOrigin_Total"},
+    	{title: "Religious bias", color: "LightSlateGray", column: "ReligiousBias_Total"}
+    ],
+  });
+  hateCrimesGraph.display();
+
+  const sexualOrientationGraph = new LineGraph({
+    containerID: '#test-graph',
+    dataFile: 'data/test.csv',
+    yAxisColumnName: 'Year',
+    width: $('#hate-crime-line-graphe').outerWidth(),
+    height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
+    margins: {
+      left: 50,
+      top: 10,
+      bottom: 10,
+      right: 10,
+    },
+    xScaleDomain: [2000, 2015], // Domain of the x scale domain
+    yScaleDomain: [0, 1500], // Domain of the y scale domain
+    xAxisLabel: 'Year',
+    yAxisLabel: 'Number of registered offenses',
+    filters: [
+    	{title: "Sexual orientation", color: "DarkRed", column: "Total"},
+    ],
+  });
+  sexualOrientationGraph.display();
 });
