@@ -1,21 +1,22 @@
 
-
-let width = 960;
-let height = 600;
-
+// Margin to use inside the SVG tag
 let margins = {
 	top: 20,
 	right: 20,
 	bottom: 20,
-	left: 50
+	left: 60
 };
 
+// The width of the g inside the svg tag
+let width = 800 - margins.left - margins.right;
+let height = 480 - margins.top - margins.bottom;
+
 let xScale = d3.scaleLinear()
-	.range([margins.left, width - margins.right])
+	.range([margins.left, width])
 	.domain([2000, 2015]);
 
 let yScale = d3.scaleLinear()
-	.range([height - margins.top, margins.bottom])
+	.range([height, margins.bottom])
 	.domain([0, 4500]);
 
 let xAxis = d3.axisBottom(xScale);
@@ -23,20 +24,39 @@ let yAxis = d3.axisLeft(yScale);
 
 // Column to display
 let filter = [
-	{title: "Racial bias", color: "Crimson", column: "RacialBias_Total"}, 
-	{title: "Ethnicity / National origin", color: "Tomato", column: "Ethnicity/NationalOrigin_Total"}, 
-	{title: "Religious bias", color: "LightSlateGray", column: "ReligiousBias_Total"}, 
+	{title: "Racial bias", color: "Crimson", column: "RacialBias_Total"},
+	{title: "Ethnicity / National origin", color: "Tomato", column: "Ethnicity/NationalOrigin_Total"},
+	{title: "Religious bias", color: "LightSlateGray", column: "ReligiousBias_Total"},
 	// {title: "Disability", color: "MediumOrchid", column: "Disability_Total"},
 	// {title: "Sexual orientation", color: "LimeGreen", column: "SexualOrientation_Total"},
 	// {title: "Gender", color: "SteelBlue", column: "Gender_Total"},
 	// {title: "Gender identity", color: "DarkKhaki", column: "GenderIdentity_Total"}
 ];
 
-// Create the svg
+// Create the svg, append a <g> group and we call 'svg' the <g> inside the real svg
 let svg = d3.select("body")
 	.append("svg")
-		.attr("width", width)
-		.attr("height", height);
+		.attr("width", width + margins.left + margins.right)
+		.attr("height", height + margins.top + margins.bottom + 40)
+	.append("g")
+		.attr("transform", "translate(" + margins.left + ", " + margins.top + ")");
+
+// Append a label for the X axis
+svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," +
+                           (height + 40) + ")")
+      .style("text-anchor", "middle")
+      .text("Year");
+
+// Append a label to the Y axis
+svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margins.left / 2)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of registered offenses");
 
 d3.csv("data/pute.csv", (err, data) => {
 	if(err) throw err;
@@ -60,8 +80,8 @@ d3.csv("data/pute.csv", (err, data) => {
 	let legends = svg
 		.append("g")
 		.attr("class", "legends")
-		.attr("transform", "translate(" + 680 + "," + 50 + ")");
-	
+		.attr("transform", "translate(" + (width - 250) + "," + 50 + ")");
+
 	let legend = legends
 		.selectAll("g.legend")
 		.data(filter)
@@ -89,7 +109,7 @@ d3.csv("data/pute.csv", (err, data) => {
 	// Create x axis
 	svg.append("g")
 		.attr("class", "x axis")
-		.attr("transform", "translate(0," + (height - margins.bottom) + ")")
+		.attr("transform", "translate(0," + (height) + ")")
 		.call(xAxis);
 
 	// Create y axis
