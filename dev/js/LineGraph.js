@@ -32,8 +32,6 @@ class LineGraph {
 
     // Merge the options
     this.options = Object.assign({}, defaultOptions, options);
-    
-    console.log(options.width);
   }
 
   /**
