@@ -149,7 +149,5 @@ class LineGraph {
         .call(yAxis);
 
     });
-    
-    console.log("looool");
   }
 }
