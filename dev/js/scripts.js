@@ -24,9 +24,9 @@ $(document).ready(function() {
     xAxisLabel: 'Year',
     yAxisLabel: 'Number of registered offenses',
     filters: [
-    	{title: "Racial bias", color: "Crimson", column: "RacialBias_Total"},
-    	{title: "Ethnicity / National origin", color: "Tomato", column: "Ethnicity/NationalOrigin_Total"},
-    	{title: "Religious bias", color: "LightSlateGray", column: "ReligiousBias_Total"}
+      {title: "Racial bias", color: "Crimson", column: "RacialBias_Total"},
+      {title: "Ethnicity / National origin", color: "Tomato", column: "Ethnicity/NationalOrigin_Total"},
+      {title: "Religious bias", color: "LightSlateGray", column: "ReligiousBias_Total"}
     ],
   });
   hateCrimesGraph.display();
@@ -48,7 +48,7 @@ $(document).ready(function() {
     xAxisLabel: 'Year',
     yAxisLabel: 'Number of registered offenses',
     filters: [
-    	{title: "Sexual orientation", color: "DarkRed", column: "Total"},
+      {title: "Sexual orientation", color: "DarkRed", column: "Total"},
     ],
   });
   sexualOrientationGraph.display();

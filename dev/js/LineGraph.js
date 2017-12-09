@@ -19,9 +19,9 @@ class LineGraph {
       height: 480, // The total height of the graph
       margins: { // Margins
         top: 20,
-      	right: 20,
-      	bottom: 20,
-      	left: 60
+        right: 20,
+        bottom: 20,
+        left: 60
       },
       xScaleDomain: [0, 10], // Domain of the x scale domain
       yScaleDomain: [0, 100], // Domain of the y scale domain
@@ -32,6 +32,8 @@ class LineGraph {
 
     // Merge the options
     this.options = Object.assign({}, defaultOptions, options);
+    
+    console.log(options.width);
   }
 
   /**
@@ -42,7 +44,7 @@ class LineGraph {
     if(this.options.containerID === undefined || this.options.dataFile === undefined) {
       return;
     }
-
+    
     // Margin to use inside the SVG tag
     let margins = this.options.margins;
 
@@ -51,23 +53,23 @@ class LineGraph {
     let height = this.options.height - margins.top - margins.bottom;
 
     let xScale = d3.scaleLinear()
-    	.range([margins.left, width])
-    	.domain(this.options.xScaleDomain);
+      .range([margins.left, width])
+      .domain(this.options.xScaleDomain);
 
     let yScale = d3.scaleLinear()
-    	.range([height, margins.bottom])
-    	.domain(this.options.yScaleDomain);
+      .range([height, margins.bottom])
+      .domain(this.options.yScaleDomain);
 
     let xAxis = d3.axisBottom(xScale);
     let yAxis = d3.axisLeft(yScale);
 
     // Create the svg, append a <g> group and we call 'svg' the <g> inside the real svg
     let svg = d3.select(this.options.containerID)
-    	.append("svg")
-    		.attr("width", width + margins.left + margins.right)
-    		.attr("height", height + margins.top + margins.bottom + 40)
-    	.append("g")
-    		.attr("transform", "translate(" + margins.left + ", " + margins.top + ")");
+      .append("svg")
+        .attr("width", width + margins.left + margins.right)
+        .attr("height", height + margins.top + margins.bottom + 40)
+      .append("g")
+        .attr("transform", "translate(" + margins.left + ", " + margins.top + ")");
 
     // Append a label for the X axis
     svg.append("text")
@@ -89,65 +91,67 @@ class LineGraph {
     const options = this.options;
 
     d3.csv(this.options.dataFile, (err, data) => {
-    	if(err) throw err;
+      if(err) throw err;
 
-    	// Add lines
-    	this.options.filters.forEach((element) => {
-    		let line = d3.line()
-    			.x(function(d) { return xScale(d[options.yAxisColumnName]); })
-    			.y(function(d) { return yScale(d[element.column]); });
+      // Add lines
+      this.options.filters.forEach((element) => {
+        let line = d3.line()
+          .x(function(d) { return xScale(d[options.yAxisColumnName]); })
+          .y(function(d) { return yScale(d[element.column]); });
 
-    		svg.append("path")
-    			.data([data])
-    			.attr("class", "line")
-    			.attr("d", line)
-    			.style("fill", "none")
-    			.style("stroke", element.color)
-    			.style("stroke-width", "2px");
-    	});
+        svg.append("path")
+          .data([data])
+          .attr("class", "line")
+          .attr("d", line)
+          .style("fill", "none")
+          .style("stroke", element.color)
+          .style("stroke-width", "2px");
+      });
 
-    	// Add legend
-    	let legends = svg
-    		.append("g")
-    		.attr("class", "legends")
-    		.attr("transform", "translate(" + (width - 250) + "," + 50 + ")");
+      // Add legend
+      let legends = svg
+        .append("g")
+        .attr("class", "legends")
+        .attr("transform", "translate(" + (width - 250) + "," + 50 + ")");
 
-    	let legend = legends
-    		.selectAll("g.legend")
-    		.data(this.options.filters)
-    		.enter().append("g")
-    		.attr("class", "legend");
-
-
-    	let w = 20;
-    	let h = 20;
-
-    	legend.append("rect")
-    		.attr("x", w)
-    		.attr("y", (d, i) => { return (i * h) - 2 * h;})
-    		.attr("width", w)
-    		.attr("height", h)
-    		.style("fill", (d, i) => { return d.color; })
-    		.style("opacity", 0.8);
-
-    	legend.append("text")
-    		.attr("x", 50)
-    		.attr("y", (d, i) => { return (i * h) - h - 4;})
-    		.text((d, i) => { return d.title; });
+      let legend = legends
+        .selectAll("g.legend")
+        .data(this.options.filters)
+        .enter().append("g")
+        .attr("class", "legend");
 
 
-    	// Create x axis
-    	svg.append("g")
-    		.attr("class", "x axis")
-    		.attr("transform", "translate(0," + (height) + ")")
-    		.call(xAxis);
+      let w = 20;
+      let h = 20;
 
-    	// Create y axis
-    	svg.append("g")
-    		.attr("class", "y axis")
-    		.attr("transform", "translate(" + (margins.left) + ",0)")
-    		.call(yAxis);
+      legend.append("rect")
+        .attr("x", w)
+        .attr("y", (d, i) => { return (i * h) - 2 * h;})
+        .attr("width", w)
+        .attr("height", h)
+        .style("fill", (d, i) => { return d.color; })
+        .style("opacity", 0.8);
+
+      legend.append("text")
+        .attr("x", 50)
+        .attr("y", (d, i) => { return (i * h) - h - 4;})
+        .text((d, i) => { return d.title; });
+
+
+      // Create x axis
+      svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height) + ")")
+        .call(xAxis);
+
+      // Create y axis
+      svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + (margins.left) + ",0)")
+        .call(yAxis);
 
     });
+    
+    console.log("looool");
   }
 }
