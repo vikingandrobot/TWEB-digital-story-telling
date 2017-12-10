@@ -64,14 +64,17 @@ class ChoroplethGraph {
       if(err) throw err;
 
       // Sort by number of reported incidents
-        let top = csv.sort((a, b) => {
+      let top = csv.sort((a, b) => {
         return d3.descending(+a[year], +b[year]);
       });
 
       // We just create a name map to store the name of the state by code
       let nameMap = new Map()
       top.forEach((d) => {
-        nameMap.set(d.Code, d.State);
+        nameMap.set(d.Code, {
+          state: d.State,
+          value: d[year]
+        });
       });
 
       top = top.slice(0, 10);
@@ -112,13 +115,10 @@ class ChoroplethGraph {
       // Event to display tooltip on mouse over
       $(this.options.containerID + ' svg path').mouseover(function(e) {
         const code = $(this).attr('data-code');
-        const value = map.get($(this).attr('data-code'));
+        const value = nameMap.get($(this).attr('data-code')).value;
         let text = '';
-        if (value === undefined) {
-          text = nameMap.get(code) + " (" + code + ")" + "<br/>Less than " + min + " registered offenses.";
-        } else {
-          text = nameMap.get(code) + " (" + code + ")" + "<br/>" + value + " registered offenses.";
-        }
+        text = nameMap.get(code).state + " (" + code + ")" + "<br/>" + value + " registered offenses.";
+
         $('.tooltip').css('border-color', $(this).css('fill'));
         $('.tooltip').addClass('active');
         $('.tooltip').html(text);
@@ -138,33 +138,38 @@ class ChoroplethGraph {
 
   update() {
     let year = 'Year_' + this.year;
-    
+
     d3.csv(this.options.csv, (us) => {
       // Sort by number of reported incidents
       let top = us.sort((a, b) => {
         return d3.descending(+a[year], +b[year]);
-      }).slice(0, 10);
+      })
+
+      // We just create a name map to store the name of the state by code
+      let nameMap = new Map();
+      top.forEach((d) => {
+        nameMap.set(d.Code, {
+          state: d.State,
+          value: d[year]
+        });
+      });
+
+      top = top.slice(0, 10);
 
       // Get min and max value
       let max = d3.max(top, function(d) { return +d[year]; });
       let min = d3.min(top, function(d) { return +d[year]; });
-      
+
       // Set the color domain
       this.color.domain([min, max]);
-      
+
       // Create a map
       let map = d3.map();
       top.forEach((d) => {
         map.set(d.Code, +d[year]);
       });
-      
-      // We just create a name map to store the name of the state by code
-      let nameMap = new Map()
-      top.forEach((d) => {
-        nameMap.set(d.Code, d.State);
-      });
 
-      
+
       this.svg
         .selectAll("path")
         .style("fill", (d) => {
@@ -177,17 +182,14 @@ class ChoroplethGraph {
               return this.color(map.get(d.properties.code));
             }
           });
-          
+
       // Event to display tooltip on mouse over
       $(this.options.containerID + ' svg path').mouseover(function(e) {
         const code = $(this).attr('data-code');
-        const value = map.get($(this).attr('data-code'));
+        const value = nameMap.get($(this).attr('data-code')).value;
         let text = '';
-        if (value === undefined) {
-          text = nameMap.get(code) + " (" + code + ")" + "<br/>Less than " + min + " registered offenses.";
-        } else {
-          text = nameMap.get(code) + " (" + code + ")" + "<br/>" + value + " registered offenses.";
-        }
+        text = nameMap.get(code).state + " (" + code + ")" + "<br/>" + value + " registered offenses.";
+
         $('.tooltip').css('border-color', $(this).css('fill'));
         $('.tooltip').addClass('active');
         $('.tooltip').html(text);
