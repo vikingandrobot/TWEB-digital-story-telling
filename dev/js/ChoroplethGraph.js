@@ -64,9 +64,17 @@ class ChoroplethGraph {
       if(err) throw err;
 
       // Sort by number of reported incidents
-      let top = csv.sort((a, b) => {
+        let top = csv.sort((a, b) => {
         return d3.descending(+a[year], +b[year]);
-      }).slice(0, 10);
+      });
+
+      // We just create a name map to store the name of the state by code
+      let nameMap = new Map()
+      top.forEach((d) => {
+        nameMap.set(d.Code, d.State);
+      });
+
+      top = top.slice(0, 10);
 
       // Get min and max value
       let max = d3.max(top, function(d) { return +d[year]; });
@@ -79,6 +87,7 @@ class ChoroplethGraph {
       let map = d3.map();
       top.forEach((d) => {
         map.set(d.Code, +d[year]);
+        nameMap.set(d.Code, d.State);
       });
 
       // Sets the path and color for the map
@@ -100,6 +109,25 @@ class ChoroplethGraph {
               return this.color(map.get(d.properties.code));
             }
           });
+
+      // Event to display tooltip on mouse over
+      $(this.options.containerID + ' svg path').mouseover(function(e) {
+        const code = $(this).attr('data-code');
+        const value = map.get($(this).attr('data-code'));
+        let text = '';
+        if (value === undefined) {
+          text = nameMap.get(code) + " (" + code + ")" + "<br/>Less than " + min + " registered offenses.";
+        } else {
+          text = nameMap.get(code) + " (" + code + ")" + "<br/>" + value + " registered offenses.";
+        }
+        $('.tooltip').css('border-color', $(this).css('fill'));
+        $('.tooltip').addClass('active');
+        $('.tooltip').html(text);
+      });
+
+      $(this.options.containerID).mouseleave(function() {
+        $('.tooltip').removeClass('active');
+      })
     }
 
     // Load data
