@@ -37,12 +37,7 @@ $(document).ready(function() {
     yAxisColumnName: 'Year',
     width: $('#hate-crime-line-graphe').outerWidth(),
     height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
-    margins: {
-      left: 50,
-      top: 10,
-      bottom: 10,
-      right: 10,
-    },
+
     xScaleDomain: [2000, 2015], // Domain of the x scale domain
     yScaleDomain: [0, 1500], // Domain of the y scale domain
     xAxisLabel: 'Year',

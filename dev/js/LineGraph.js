@@ -20,8 +20,8 @@ class LineGraph {
       margins: { // Margins
         top: 20,
         right: 20,
-        bottom: 20,
-        left: 60
+        bottom: 40,
+        left: 38
       },
       xScaleDomain: [0, 10], // Domain of the x scale domain
       yScaleDomain: [0, 100], // Domain of the y scale domain
@@ -39,7 +39,8 @@ class LineGraph {
   */
   display() {
     // We need these options
-    if(this.options.containerID === undefined || this.options.dataFile === undefined) {
+    if(this.options.containerID === undefined || 
+       this.options.dataFile === undefined) {
       return;
     }
     
@@ -65,26 +66,27 @@ class LineGraph {
     let svg = d3.select(this.options.containerID)
       .append("svg")
         .attr("width", width + margins.left + margins.right)
-        .attr("height", height + margins.top + margins.bottom + 40)
+        .attr("height", height + margins.top + margins.bottom)
       .append("g")
         .attr("transform", "translate(" + margins.left + ", " + margins.top + ")");
 
     // Append a label for the X axis
     svg.append("text")
-          .attr("transform",
-                "translate(" + (width/2) + " ," +
-                               (height + 40) + ")")
-          .style("text-anchor", "middle")
-          .text(this.options.xAxisLabel);
+      .attr("transform",
+        "translate(" + (width / 2) + 
+        " ," +
+        (height + margins.bottom) + ")")
+      .style("text-anchor", "middle")
+      .text(this.options.xAxisLabel);
 
     // Append a label to the Y axis
     svg.append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 0 - margins.left / 2)
-          .attr("x",0 - (height / 2))
-          .attr("dy", "1em")
-          .style("text-anchor", "middle")
-          .text(this.options.yAxisLabel);
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margins.left)
+      .attr("x", -(height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text(this.options.yAxisLabel);
 
     const options = this.options;
 
