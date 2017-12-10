@@ -31,22 +31,49 @@ $(document).ready(function() {
   });
   hateCrimesGraph.display();
 
-  const sexualOrientationGraph = new LineGraph({
-    containerID: '#test-graph',
-    dataFile: 'data/test.csv',
+  const numberOfImmigrantsGraph = new LineGraph({
+    containerID: '#number-immigrant-graph',
+    dataFile: 'data/number_of_immigrants.csv',
     yAxisColumnName: 'Year',
     width: $('#hate-crime-line-graphe').outerWidth(),
     height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
-
     xScaleDomain: [2000, 2015], // Domain of the x scale domain
-    yScaleDomain: [0, 1500], // Domain of the y scale domain
+    yScaleDomain: [0, 44000000], // Domain of the y scale domain
+    margins: {
+      top: 20,
+      right: 20,
+      bottom: 40,
+      left: 50
+    },
     xAxisLabel: 'Year',
-    yAxisLabel: 'Number of registered offenses',
+    yAxisLabel: 'Number of immigrants',
     filters: [
-      {title: "Sexual orientation", color: "DarkRed", column: "Total"},
+      {title: "Number of immigrants", color: "DarkGreen", column: "number_immigrants"},
     ],
   });
-  sexualOrientationGraph.display();
+  numberOfImmigrantsGraph.display();
+  
+  const numberOfNewImmigrantsGraph = new LineGraph({
+    containerID: '#number-new-immigrant-graph',
+    dataFile: 'data/number_of_new_immigrants.csv',
+    yAxisColumnName: 'Year',
+    width: $('#hate-crime-line-graphe').outerWidth(),
+    height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
+    xScaleDomain: [2000, 2015], // Domain of the x scale domain
+    yScaleDomain: [0, 1300000], // Domain of the y scale domain
+    margins: {
+      top: 20,
+      right: 20,
+      bottom: 40,
+      left: 50
+    },
+    xAxisLabel: 'Year',
+    yAxisLabel: 'Number of new immigrants',
+    filters: [
+      {title: "Number of new immigrants", color: "DarkGreen", column: "number_immigrants"},
+    ],
+  });
+  numberOfNewImmigrantsGraph.display();
 
   const choroplethGraph = new ChoroplethGraph({
     containerID: "#hate-crime-choropleth-graphe",
