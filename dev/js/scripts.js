@@ -11,7 +11,15 @@ $(document).ready(function() {
     $('html, body').animate({
       scrollTop: $(targetID).offset().top - $('header').outerHeight()
     }, 500);
-  })
+  });
+
+  $('.map-range').on('input', function() {
+      $('.display-value').html( $(this).val() );
+
+      // TODO update the map 
+      //choroplethGraph.year = $(this).val();
+      //choroplethGraph.display();
+  });
 
   const hateCrimesGraph = new LineGraph({
     containerID: '#hate-crime-line-graphe',
@@ -52,7 +60,7 @@ $(document).ready(function() {
     ],
   });
   sexualOrientationGraph.display();
-  
+
   const choroplethGraph = new ChoroplethGraph({
     containerID: "#hate-crime-choropleth-graphe",
     topoJson: "data/us-10m.v1.json",
