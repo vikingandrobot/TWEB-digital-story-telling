@@ -74,6 +74,22 @@ $(document).ready(function() {
     ],
   });
   numberOfNewImmigrantsGraph.display();
+  
+  const sexualOrientationGraph = new LineGraph({
+    containerID: '#sexual-orientation-graph',
+    dataFile: 'data/hate_crimes.csv',
+    yAxisColumnName: 'Year',
+    width: $('#sexual-orientation-graph').outerWidth(),
+    height: 0.56 * $('#sexual-orientation-graph').outerWidth(),
+    xScaleDomain: [2000, 2015], // Domain of the x scale domain
+    yScaleDomain: [0, 1400], // Domain of the y scale domain
+    xAxisLabel: 'Year',
+    yAxisLabel: 'Number of registered offenses',
+    filters: [
+      {title: "Sexual orientation", color: "LightSlateGray", column: "SexualOrientation_Total"}
+    ],
+  });
+  sexualOrientationGraph.display();
 
   const choroplethGraph = new ChoroplethGraph({
     containerID: "#hate-crime-choropleth-graphe",
