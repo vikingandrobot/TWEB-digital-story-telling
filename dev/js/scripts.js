@@ -35,8 +35,8 @@ $(document).ready(function() {
     containerID: '#number-immigrant-graph',
     dataFile: 'data/number_of_immigrants.csv',
     yAxisColumnName: 'Year',
-    width: $('#hate-crime-line-graphe').outerWidth(),
-    height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
+    width: $('#number-immigrant-graph').outerWidth(),
+    height: 0.56 * $('#number-immigrant-graph').outerWidth(),
     xScaleDomain: [2000, 2015], // Domain of the x scale domain
     yScaleDomain: [0, 44000000], // Domain of the y scale domain
     margins: {
@@ -48,7 +48,7 @@ $(document).ready(function() {
     xAxisLabel: 'Year',
     yAxisLabel: 'Number of immigrants',
     filters: [
-      {title: "Number of immigrants", color: "DarkGreen", column: "number_immigrants"},
+      {title: "Immigrants population", color: "DarkGreen", column: "number_immigrants"},
     ],
   });
   numberOfImmigrantsGraph.display();
@@ -57,8 +57,8 @@ $(document).ready(function() {
     containerID: '#number-new-immigrant-graph',
     dataFile: 'data/number_of_new_immigrants.csv',
     yAxisColumnName: 'Year',
-    width: $('#hate-crime-line-graphe').outerWidth(),
-    height: 0.56 * $('#hate-crime-line-graphe').outerWidth(),
+    width: $('#number-new-immigrant-graph').outerWidth(),
+    height: 0.56 * $('#number-new-immigrant-graph').outerWidth(),
     xScaleDomain: [2000, 2015], // Domain of the x scale domain
     yScaleDomain: [0, 1300000], // Domain of the y scale domain
     margins: {
@@ -70,7 +70,7 @@ $(document).ready(function() {
     xAxisLabel: 'Year',
     yAxisLabel: 'Number of new immigrants',
     filters: [
-      {title: "Number of new immigrants", color: "DarkGreen", column: "number_immigrants"},
+      {title: "New immigrants", color: "DarkOrange", column: "number_immigrants"},
     ],
   });
   numberOfNewImmigrantsGraph.display();
