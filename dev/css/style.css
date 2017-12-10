@@ -155,7 +155,7 @@ header nav .github-link:hover {
 
 
 /* Choropleth map */
-path {
+#hate-crime-choropleth-graphe path {
   fill: gray;
   stroke:white;
   stroke-width: 1px;
