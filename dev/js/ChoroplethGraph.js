@@ -49,7 +49,9 @@ class ChoroplethGraph {
 
   display() {
     // We need these options
-    if(this.options.containerID === undefined) {
+    if(this.options.containerID === undefined ||
+       this.options.topoJson === undefined ||
+       this.options.csv === undefined) {
       return;
     }
     
