@@ -13,14 +13,6 @@ $(document).ready(function() {
     }, 500);
   });
 
-  $('.map-range').on('input', function() {
-      $('.display-value').html( $(this).val() );
-
-      // TODO update the map 
-      //choroplethGraph.year = $(this).val();
-      //choroplethGraph.display();
-  });
-
   const hateCrimesGraph = new LineGraph({
     containerID: '#hate-crime-line-graphe',
     dataFile: 'data/hate_crimes.csv',
@@ -62,4 +54,14 @@ $(document).ready(function() {
     csv: "data/reported_incident_state_2000_2015.csv",
   });
   choroplethGraph.display();
+  
+  $('.map-range').on('input', function() {
+      $('.display-value').html( $(this).val() );
+
+      // TODO update the map 
+      choroplethGraph.year = $(this).val();
+      //choroplethGraph.display();
+      
+      choroplethGraph.update();
+  });
 });

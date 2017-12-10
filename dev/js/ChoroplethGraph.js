@@ -87,7 +87,6 @@ class ChoroplethGraph {
       let map = d3.map();
       top.forEach((d) => {
         map.set(d.Code, +d[year]);
-        nameMap.set(d.Code, d.State);
       });
 
       // Sets the path and color for the map
@@ -127,7 +126,7 @@ class ChoroplethGraph {
 
       $(this.options.containerID).mouseleave(function() {
         $('.tooltip').removeClass('active');
-      })
+      });
     }
 
     // Load data
@@ -135,5 +134,68 @@ class ChoroplethGraph {
       .defer(d3.json, this.options.topoJson)
       .defer(d3.csv, this.options.csv)
       .await(ready);
+  }
+
+  update() {
+    let year = 'Year_' + this.year;
+    
+    d3.csv(this.options.csv, (us) => {
+      // Sort by number of reported incidents
+      let top = us.sort((a, b) => {
+        return d3.descending(+a[year], +b[year]);
+      }).slice(0, 10);
+
+      // Get min and max value
+      let max = d3.max(top, function(d) { return +d[year]; });
+      let min = d3.min(top, function(d) { return +d[year]; });
+      
+      // Set the color domain
+      this.color.domain([min, max]);
+      
+      // Create a map
+      let map = d3.map();
+      top.forEach((d) => {
+        map.set(d.Code, +d[year]);
+      });
+      
+      // We just create a name map to store the name of the state by code
+      let nameMap = new Map()
+      top.forEach((d) => {
+        nameMap.set(d.Code, d.State);
+      });
+
+      
+      this.svg
+        .selectAll("path")
+        .style("fill", (d) => {
+            let n = map.get(d.properties.code);
+
+            if(n ===  undefined) {
+              return this.options.defaultColor;
+            }
+            else {
+              return this.color(map.get(d.properties.code));
+            }
+          });
+          
+      // Event to display tooltip on mouse over
+      $(this.options.containerID + ' svg path').mouseover(function(e) {
+        const code = $(this).attr('data-code');
+        const value = map.get($(this).attr('data-code'));
+        let text = '';
+        if (value === undefined) {
+          text = nameMap.get(code) + " (" + code + ")" + "<br/>Less than " + min + " registered offenses.";
+        } else {
+          text = nameMap.get(code) + " (" + code + ")" + "<br/>" + value + " registered offenses.";
+        }
+        $('.tooltip').css('border-color', $(this).css('fill'));
+        $('.tooltip').addClass('active');
+        $('.tooltip').html(text);
+      });
+
+      $(this.options.containerID).mouseleave(function() {
+        $('.tooltip').removeClass('active');
+      });
+    });
   }
 }
