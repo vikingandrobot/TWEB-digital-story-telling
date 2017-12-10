@@ -138,6 +138,7 @@ class ChoroplethGraph {
 
   update() {
     let year = 'Year_' + this.year;
+    $('.tooltip').removeClass('active');
 
     d3.csv(this.options.csv, (us) => {
       // Sort by number of reported incidents

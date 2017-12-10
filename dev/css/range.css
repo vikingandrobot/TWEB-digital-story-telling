@@ -1,7 +1,14 @@
+.range-slider {
+  float: left;
+  width: 100%;
+  padding: 2.5% !important;
+  background-color: #efefef;
+}
+
 input[type="range"] {
   float: left;
     position: relative;
-    margin: 0.45em 0 3em 0;
+    margin: 0.45em 0 2em 0;
     width: 80%;
 }
 input[type="range"]:after,
@@ -21,6 +28,7 @@ input[type="range"]:after {
 
 .display-value {
   float: left;
-  width: 20%;
-  padding-left: 10%;
+  width: 15%;
+  margin-left: 5%;
+  text-align: right;
 }
