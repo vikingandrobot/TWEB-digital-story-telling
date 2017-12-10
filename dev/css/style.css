@@ -130,8 +130,7 @@ header nav .github-link:hover {
 
 /* Container for the content */
 .container {
-  width: 80%;
-  max-width: 1400px;
+  width: 1000px;
   padding: 5%;
   margin: 10% auto;
   background-color: white;

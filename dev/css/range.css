@@ -1,0 +1,26 @@
+input[type="range"] {
+  float: left;
+    position: relative;
+    margin: 0.45em 0 3em 0;
+    width: 80%;
+}
+input[type="range"]:after,
+input[type="range"]:before {
+    position: absolute;
+    top: 2em;
+    color: #aaa;
+}
+input[type="range"]:before {
+    left:0em;
+    content: attr(min);
+}
+input[type="range"]:after {
+    right: 0em;
+    content: attr(max);
+}
+
+.display-value {
+  float: left;
+  width: 20%;
+  padding-left: 10%;
+}

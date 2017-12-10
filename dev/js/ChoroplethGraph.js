@@ -1,8 +1,7 @@
 class ChoroplethGraph {
-  
+
   constructor(options) {
 
-    
     const defaultOptions = {
       containerID: undefined, // ID of the container to put the graph in
       topoJson: undefined,
@@ -32,16 +31,18 @@ class ChoroplethGraph {
     let resize = () => {
       this.svg
         .attr(
-          "transform", 
+          "transform",
           "scale(" + $(this.options.containerID).width() / 950 + ")"
         );
-        
+
       d3.select(this.options.containerID + " svg")
         .attr("height", $(this.options.containerID).width() * 0.65)
     }
-    
+
     // Callback when window is resized
     d3.select(window).on("resize", resize);
+
+    this.year = 2000;
 
     // Scale
     resize();
@@ -54,23 +55,23 @@ class ChoroplethGraph {
        this.options.csv === undefined) {
       return;
     }
-    
+
     // Year to display
-    let year = 'Year_2014';
-    
+    let year = 'Year_' + this.year;
+
     // Handle data
     let ready = (err, us, csv) => {
       if(err) throw err;
-      
+
       // Sort by number of reported incidents
       let top = csv.sort((a, b) => {
         return d3.descending(+a[year], +b[year]);
       }).slice(0, 10);
-      
+
       // Get min and max value
       let max = d3.max(top, function(d) { return +d[year]; });
       let min = d3.min(top, function(d) { return +d[year]; });
-      
+
       // Set the color domain
       this.color.domain([min, max]);
 
@@ -89,7 +90,7 @@ class ChoroplethGraph {
         .enter().append("path")
           .attr("d", this.path)
           .attr("data-code", (d) => { return d.properties.code })
-          .style("fill", (d) => {            
+          .style("fill", (d) => {
             let n = map.get(d.properties.code);
 
             if(n ===  undefined) {

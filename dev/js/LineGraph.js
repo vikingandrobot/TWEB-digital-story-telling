@@ -43,7 +43,7 @@ class LineGraph {
        this.options.dataFile === undefined) {
       return;
     }
-    
+
     // Margin to use inside the SVG tag
     let margins = this.options.margins;
 
