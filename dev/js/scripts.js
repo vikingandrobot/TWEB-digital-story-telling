@@ -52,4 +52,11 @@ $(document).ready(function() {
     ],
   });
   sexualOrientationGraph.display();
+  
+  const choroplethGraph = new ChoroplethGraph({
+    containerID: "#hate-crime-choropleth-graphe",
+    topoJson: "data/us-10m.v1.json",
+    csv: "data/reported_incident_state_2000_2015.csv",
+  });
+  choroplethGraph.display();
 });

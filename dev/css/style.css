@@ -154,6 +154,13 @@ header nav .github-link:hover {
 }
 
 
+/* Choropleth map */
+path {
+  fill: gray;
+  stroke:white;
+  stroke-width: 1px;
+}
+
 
 /* Quotes */
 .quote {
