@@ -97,9 +97,11 @@
         </p>
         <h3>Avertissement au lecteur</h3>
         <p>
-          Nous ne sommes en aucun cas qualifiés pour traiter d’un sujet aussi délicat.
-          Si vous trouvez des erreurs dans nos propos ou dans notre approche du sujet,
-          n’hésitez pas à nous contacter pour nous corriger.
+          Nous (les auteurs de cet article) n’avons pas de formation particulière
+          dans ce domaine. Nous sommes conscients qu’il s’agit d’un sujet délicat
+          et nous excusons d’avance si nous avons commis des erreurs méthodologiques
+          lors de la rédaction de ce document. Le but principal de ce projet est de
+          raconter une histoire en visualisant des données.
         </p>
       </article>
       <article id="etats" class="main-article">
@@ -111,14 +113,24 @@
         </p>
 
         <section id="hate-crime-choropleth-graphe" class="graph-container">
-          <h3>Hate crime graph</h3>
-          <article>
+          <h3>Visualisation des 10 états les plus touchés par année</h3>
+          <article class="range-slider">
             <input class="map-range" type="range" min="2000" max="2015" step="1" value="2000"/>
             <div class="display-value">2000</div>
           </article>
           <div class="tooltip"></div>
 
         </section>
+
+        <p>
+          On remarque que les états les plus touchés par le phénomène ne changent
+          pas sensiblement aux cours des 15 dernières années. La Californie garde
+          sa première place tout au long de cette période. Si l’on observe les dix
+          états les plus touchés chaque année, on peut noter que la distribution
+          est assez stable. Certains ne restent pas dans ce top 10 tout le temps,
+          mais sur 15 ans, c’est un petit sous-ensemble d’états qui garde le nombre
+          d’infractions le plus élevé.
+        </p>
       </article>
       <article id="immigration" class="main-article">
         <h2>Les crimes de haine et l'immigration</h2>
@@ -138,13 +150,13 @@
           <h3>Hate crime graph</h3>
 
         </section>
+
         <section id="number-immigrant-graph">
           <h3>Number of immigrants graph</h3>
-
         </section>
+        
         <section id="number-new-immigrant-graph">
           <h3>Number of new immigrants graph</h3>
-
         </section>
       </article>
       <article id="types" class="main-article">
